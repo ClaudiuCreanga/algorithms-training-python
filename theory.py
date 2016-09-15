@@ -1,0 +1,2 @@
+binary search -> implementation of the divide and conquer paradigm. your algorithm will take logarithmic time
+    -> with binary search, instead of doing a linear search, if the list is sortted, you can solve the search in O(lg n)
