@@ -96,8 +96,8 @@ def mergeSort2(x):
     result = []
     mid = int(len(x)/2)
 
-    leftList = merge_sort(x[:mid])
-    rightList = merge_sort(x[mid:])
+    leftList = mergeSort2(x[:mid])
+    rightList = mergeSort2(x[mid:])
 
     while (len(leftList) > 0) and (len(rightList) > 0):
         if leftList[0] > rightList[0]:
@@ -109,4 +109,81 @@ def mergeSort2(x):
     return result
 
 
-print(merge_sort([64, 25, 12, 22, 91, 11, 2, 15, 15, 20, 90]))
+print(mergeSort2([64, 25, 12, 22, 91, 11, 2, 15, 15, 20, 90]))
+A = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+def performOps(A):
+    m = len(A)
+    n = len(A[0])
+    B = []
+    for i in range(len(A)):
+        B.append([0] * n)
+        for j in range(len(A[i])):
+            B[i][n - 1 - j] = A[i][j]
+    return B
+B = performOps(A)
+for i in range(len(B)):
+    for j in range(len(B[i])):
+        pass
+        #print(B[i][j],)
+
+
+class Solution:
+    # @param A : root node of tree
+    # @param B : root node of tree
+    # @return an integer
+    def isSameTree(self, A, B):
+        for i in range(len(A)):
+            if A[i] != B[i]:
+                return 0
+        return 1
+da  = Solution()
+print(da.isSameTree("3 5 -1 -1","3 5 -1 -1"))
+
+
+
+# Definition for a  binary tree node
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isSameTree(self, A, B):
+        if A is None and B is None:
+            return 1
+
+        if A is None or B is None:
+            return 0
+
+        return int(A.val == B.val and self.isSameTree(A.left, B.left) and
+                self.isSameTree(A.right, B.right))
+
+def fibonacci(n):
+    if n == 1 or n == 0:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(4))
+
+S='adobecodebaaaaaaaaanc'
+T='abct'
+
+def sInT(x):
+    for index, item in enumerate(S):
+        substring = S[index:index+x]
+        if isInString(substring):
+            return substring
+    if x == len(S):
+        return "No substring could be found"
+    return sInT(x+1)
+def isInString(substring):
+    for i in T:
+        if i not in substring:
+            return
+    return substring
+goodstring = sInT(len(T))
+print(goodstring)
+
+
