@@ -51,7 +51,8 @@ def selectionSort():
     return inputList
 print(selectionSort())
 
-#Merge sot - sorting algorithm, O(n log n),
+# Merge sot - sorting algorithm, O(n log n),
+# Recursive algo, divide and conquer strategy
 def mergeSort(list):
     if(len(list) > 1): # 1 list item is already sorted
         middle = len(list) // 2
