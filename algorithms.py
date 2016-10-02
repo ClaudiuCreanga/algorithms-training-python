@@ -186,4 +186,34 @@ def isInString(substring):
 goodstring = sInT(len(T))
 print(goodstring)
 
+# Quicksort O(n^2) , average case is O(n log n)
+# recursive, divide and conquer algo
+# start with a pivot. you want your pivot to be the closest to the median value so that you can split the list in half.
+# a good way to ensure it is to chose the first, last and middle item and take the average value.
+def quicksort(input_list = [64, 25, 12, 22, 11, 2, 15, 15, 20]):
+    less = []
+    equal = []
+    greater = []
+
+    if len(input_list) > 1:
+        pivot = (input_list[0] + input_list[len(input_list) - 1]) / 2
+        for x in input_list:
+            x = abs(x)
+            if x > pivot:
+                greater.append(x)
+            elif x == pivot:
+                equal.append(x)
+            elif x < pivot:
+                less.append(x)
+        return quicksort(less) + equal + quicksort(greater)
+    else:
+        return input_list
+print(quicksort())
+
+
+
+
+
+
+
 
