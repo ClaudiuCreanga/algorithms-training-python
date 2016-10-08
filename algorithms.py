@@ -211,10 +211,43 @@ def quicksort(input_list = [64, 25, 12, 22, 11, 2, 15, 15, 20]):
         return input_list
 print(quicksort())
 
-
-
-
-
+# https://leetcode.com/problems/regular-expression-matching/
+def isMatch(myString,pattern):
+    if len(myString):
+        if not len(pattern):
+            return False
+        isDot = pattern[0] == "."
+        isStar = False
+        if (len(pattern) > 1):
+            isStar = pattern[1] == "*"
+        if isStar:
+            if isDot:
+                if len(pattern) == 2:
+                    return True # .* matches everything
+                else:
+                    return isMatch(myString, pattern[2:])
+            for index,item in enumerate(myString): # aaaaab a*b is True
+                if pattern[0] is not item:
+                    return isMatch(myString[index:], pattern[2:])
+            if len(pattern) > 2:
+                return isMatch(myString[2:], pattern[2:])
+            else:
+                return True
+        elif myString[0] == pattern[0]:
+            return isMatch(myString[1:],pattern[1:])
+        elif isDot:
+            return isMatch(myString[1:],pattern[1:])
+        else:
+            return False
+    if len(pattern):
+        return False
+    return True
+print(isMatch("aa","a*c*a"))
+print(isMatch("aab","c*a*b"))
+print(isMatch("aaa","a*a"))
+print(isMatch("aaaaab","a*b"))
+print(isMatch("aa","a*"))
+print(isMatch("aaa","ab*a"))
 
 
 
