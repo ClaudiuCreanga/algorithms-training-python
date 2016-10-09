@@ -242,12 +242,36 @@ def isMatch(myString,pattern):
     if len(pattern):
         return False
     return True
-print(isMatch("aa","a*c*a"))
-print(isMatch("aab","c*a*b"))
-print(isMatch("aaa","a*a"))
-print(isMatch("aaaaab","a*b"))
-print(isMatch("aa","a*"))
-print(isMatch("aaa","ab*a"))
+#print(isMatch("aa","a*c*a"))
+
+#myList = ["1","2","3","3"]
+#dict = dict([i, myList.count(i)] for i in myList)
+#print([i, myList.count(i)])
 
 
+def statistic():
+    length = 10
+    myList = "64630 11735 14216 99233 14470 4978 73429 38120 51135 67060"
+    myList = sorted(map(int, myList.split(" ")))
+    mean = sum(myList) / float(length)
+    myList.sort()
+    if length % 2:
+        median = myList[length // 2]
+    else:
+        median = (myList[length / 2 - 1] + myList[length / 2 ]) / float(2)
+    modeList = dict([i, myList.count(i)] for i in myList)
+    sortedModeList = sorted(modeList.items(), key=lambda x: x[1], reverse=True)
+    heighestMode = sortedModeList[0][1]
+    multipleModes = []
+    for x in sortedModeList:
+        if x[1] == heighestMode:
+            multipleModes.append(x[0])
+        else:
+            break
+
+    mode = min(multipleModes)
+    return str(mean) + "\n" + str(median) + "\n" + str(mode)
+
+
+print(statistic())
 
