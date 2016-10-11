@@ -10,7 +10,7 @@ def bubbleSort():
                 inputList[i], inputList[i-1] = inputList[i-1], inputList[i]
                 changed = True # the list is not sorted
     return inputList
-print(bubbleSort())
+#print(bubbleSort())
 
 
 
@@ -22,7 +22,7 @@ def insertionSort():
             if inputList[j] < inputList[j - 1]: # if current value is smaller than any of the past values
                 inputList[j], inputList[j - 1] = inputList[j - 1], inputList[j] # swap the values
     return inputList
-print(insertionSort())
+#print(insertionSort())
 
 def insertionSort2():
     inputList = [64, 25, 12, 22, 11, 2, 15, 15, 20]
@@ -32,7 +32,7 @@ def insertionSort2():
             inputList[j], inputList[j - 1] = inputList[j - 1], inputList[j]  # swap the values
             j -= 1
     return inputList
-print(insertionSort2())
+#print(insertionSort2())
 
 
 #Selection sort - sorting algorithm, O(n^2). starts at key 0 and finds the global minimum
@@ -49,7 +49,7 @@ def selectionSort():
         if(min != index):
             inputList[index], inputList[min] = inputList[min], inputList[index]
     return inputList
-print(selectionSort())
+#print(selectionSort())
 
 # Merge sot - sorting algorithm, O(n log n),
 # Recursive algo, divide and conquer strategy
@@ -86,7 +86,7 @@ def mergeSort(list):
 
     return list
 
-print(mergeSort([64, 25, 12, 22, 91, 11, 2, 15, 15, 20, 90]))
+#print(mergeSort([64, 25, 12, 22, 91, 11, 2, 15, 15, 20, 90]))
 
 
 def mergeSort2(x):
@@ -108,9 +108,8 @@ def mergeSort2(x):
 
     result.extend(leftList+rightList)
     return result
+#print(mergeSort2([64, 25, 12, 22, 91, 11, 2, 15, 15, 20, 90]))
 
-
-print(mergeSort2([64, 25, 12, 22, 91, 11, 2, 15, 15, 20, 90]))
 A = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
 def performOps(A):
     m = len(A)
@@ -138,7 +137,7 @@ class Solution:
                 return 0
         return 1
 da  = Solution()
-print(da.isSameTree("3 5 -1 -1","3 5 -1 -1"))
+#print(da.isSameTree("3 5 -1 -1","3 5 -1 -1"))
 
 
 
@@ -166,7 +165,7 @@ def fibonacci(n):
     else:
         return fibonacci(n - 1) + fibonacci(n - 2)
 
-print(fibonacci(4))
+#print(fibonacci(4))
 
 S='adobecodebaaaaaaaaanc'
 T='abct'
@@ -185,7 +184,7 @@ def isInString(substring):
             return
     return substring
 goodstring = sInT(len(T))
-print(goodstring)
+#print(goodstring)
 
 # Quicksort O(n^2) , average case is O(n log n)
 # recursive, divide and conquer algo
@@ -209,7 +208,7 @@ def quicksort(input_list = [64, 25, 12, 22, 11, 2, 15, 15, 20]):
         return quicksort(less) + equal + quicksort(greater)
     else:
         return input_list
-print(quicksort())
+#print(quicksort())
 
 # https://leetcode.com/problems/regular-expression-matching/
 def isMatch(myString,pattern):
@@ -244,9 +243,15 @@ def isMatch(myString,pattern):
     return True
 #print(isMatch("aa","a*c*a"))
 
-#myList = ["1","2","3","3"]
-#dict = dict([i, myList.count(i)] for i in myList)
-#print([i, myList.count(i)])
+def weightedMean():
+    length = input()
+    elements = list(map(int,input().split(" ")))
+    weights = list(map(int,input().split(" ")))
+    elementsWeights = [x[0]*x[1] for x in zip(elements,weights)]
+    return round(sum(elementsWeights) / float(sum(weights)),1)
+print(weightedMean())
+
+
 
 
 def statistic():
@@ -271,7 +276,7 @@ def statistic():
 
     mode = min(multipleModes)
     return str(mean) + "\n" + str(median) + "\n" + str(mode)
+#print(statistic())
 
 
-print(statistic())
 
